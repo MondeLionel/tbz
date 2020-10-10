@@ -1,0 +1,16 @@
+<%- include('partials/head') -%>
+
+	<div class="error--message">
+	<h1>ERROR: CONNECTION NOT WORKING</h1>
+	<p>Check your internet connection yo</p>
+	<br>
+	<p>TECHNICAL DETAILS:</p>
+	<div>
+		<p>Error Code: <%= err.code %></p> 
+		<p>Axios Error?: <%= err.isAxiosError %></p>	
+	</div>
+	</div>
+
+
+
+<%- include('partials/scripts') -%>

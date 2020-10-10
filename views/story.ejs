@@ -1,0 +1,41 @@
+<%- include('partials/head') -%>
+
+
+<main data-scroll-container >
+<%- include('partials/nav') -%>
+
+	<div class="swiper-container story" >
+		<div class="swiper-wrapper">
+<% stories.forEach(function(story){%>
+		<div class="swiper-slide">
+				<div class="col story--content" >
+					<div class="content--header" >
+						<h1 data-scroll data-scroll-speed="1"><%= story.title.rendered %></h1>
+						<h3 data-scroll data-scroll-speed="0.5">THE NEW REPUBLIC</h3>
+					</div>
+					<div class="image--wrapper" style="transform: 0px;">
+						<img data-scroll data-scroll-speed="2" data-scroll-position="top" class="img-fluid" src="<%= story['_embedded']['wp:featuredmedia'][0].media_details.sizes.full.source_url %>" alt="">
+					</div>
+					<a href="stories/<%= story.id %>" class="read--button">READ</a>
+				</div>
+				<!-- <div class="content" data-scoll data-scroll-speed="0.8">
+					<%- story.content.rendered %>
+				</div> -->
+			</div>
+		
+<% })%>
+	</div>
+</div>
+</main>
+
+
+
+<%- include('partials/scripts') -%>
+<script type="text/javascript">
+	var scroll =  new LocomotiveScroll({
+		el:document.querySelector('[data-scroll-container]'),
+		smooth:true,
+		scollbarClass:'c-scrollbar'
+	})
+
+</script>

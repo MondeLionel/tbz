@@ -1,0 +1,45 @@
+<%- include('partials/head') -%>
+
+
+<main data-scroll-container >
+<%- include('partials/nav') -%>
+
+<div class=" story" >
+
+	<div class="col story--content" >
+		<div class="content--header" >
+			<h1 data-scroll data-scroll-speed="1"><%= storyID.title.rendered %></h1>
+			<h3 data-scroll data-scroll-speed="0.5">THE NEW REPUBLIC</h3>
+		</div>
+		<div class="image--wrapper" style="transform: 0px;">
+			<img data-scroll data-scroll-speed="2" data-scroll-position="top" class="img-fluid" src="<%= storyID['_embedded']['wp:featuredmedia'][0].media_details.sizes.full.source_url %>" alt="">
+		</div>
+	</div>
+	<div class="content" data-scoll data-scroll-speed="0.8">
+		<%- storyID.content.rendered %>
+	</div>
+</div>
+<div class="footer">
+	<div class="footer-1">
+		<a href="#">Previous Chapter</a>
+		<a href="/stories/<%= storyID.id %>">Next Chapter</a>
+	</div>
+	<div class="footer-2">
+		<p>This story is copyrighted by MLN 2020.</p>
+		<p><small>Contact Author: lionelnyawose@gmail.com</small></p>
+	</div>
+</div>
+</main>
+
+
+
+<%- include('partials/scripts') -%>
+<script type="text/javascript">
+	var scroll =  new LocomotiveScroll({
+		el:document.querySelector('[data-scroll-container]'),
+		smooth:true,
+		scollbarClass:'c-scrollbar'
+	})
+
+</script>
+
